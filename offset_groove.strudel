@@ -3,24 +3,20 @@ setcps(bpm/60)
 
 samples('github:rudkx/samples')
 
-// DRUMS
-$: s("[<bd <[bd,sd] [bd,sd,[ ~ | stereoclap [~ | stereoclap]]]> > hh]")
-  //.swing(1)
+$drums: s("[<bd <[bd,sd] [bd,sd, stereoclap? stereoclap?]> > hh]")
   .gain(0.6)
   .compressor("-20:20:10:0.002:0.02")
   .room(0.4)
 ._punchcard()
 
 
-// BASS
-$: n("[0 [4 0] 0 <[2 6] 3>]/2")
+$bass: n("[0 [4 0] 0 <[2 6] 3>]/2")
      .scale("c2:minor:pentatonic")
      .s("saw")
      .lpf(tri.range(2000,4000)).lpq(15)
      .gain(0.5)
 
-// MELODY
-$: n("[[0 <0 1 2 4> 0] <[3 4] [2,6]> <[3 3 -3] -5 [-1 0]> <2 [-7,0]/2>]/2"
+$melody: n("[[0 <0 1 2 4> 0] <[3 4] [2,6]> <[3 3 -3] -5 [-1 0]> <2 [-7,0]/2>]/2"
      .off(1/16,x=>x.add(4))//.off(1/16, x=>x.add(-7))
   )
   .degradeBy(tri.range(0.4,0.9).slow(16))
