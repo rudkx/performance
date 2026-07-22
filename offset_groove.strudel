@@ -3,14 +3,14 @@ setcps(bpm/60)
 
 samples('github:rudkx/samples')
 
-$drums: s("[<bd <[bd,sd] [bd,sd, stereoclap? stereoclap?]> > hh]")
+$drums: s("[<bd <[bd,sd] [bd,sd, stereoclap? stereoclap?]> > [hh hh?]]")
   .gain(0.6)
   .compressor("-20:20:10:0.002:0.02")
   .room(0.4)
-._punchcard()
+  ._punchcard()
 
 
-$bass: n("[0 [4 0] 0 <[2 6] 3>]/2")
+$bass: n("[0 [4 0] 0? <[2 6] 3?>]/2")
      .scale("c2:minor:pentatonic")
      .s("saw")
      .lpf(tri.range(2000,4000)).lpq(15)
@@ -25,7 +25,7 @@ $melody: n("[[0 <0 1 2 4> 0] <[3 4] [2,6]> <[3 3 -3] -5 [-1 0]> <2 [-7,0]/2>]/2"
   //.iter(1)
   //.palindrome()
   .scale("[c5:minor | c5:minor:pentatonic]")
-  .s("[triangle | supersaw | sine | supersaw | square]")
+  .s("[triangle | supersaw | sine | square]")
   //.s(wchooseCycles(["triangle", 2], ["supersaw", 6], ["sine", 2]))
   .gain("[<0.6 0.4> <0.5 0.6> <0.6 0.5> <0.5 0.3> 0.4]")
   .adsr("0:0.2:0:0 | 0:0.3:0.3:0")
