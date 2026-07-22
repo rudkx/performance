@@ -4,7 +4,7 @@ setcps(bpm/60)
 samples('github:rudkx/samples')
 
 // DRUMS
-$: s("[<bd <[bd,sd] [bd,sd,[ ~ | stereoclap stereoclap]]> > hh]")
+$: s("[<bd <[bd,sd] [bd,sd,[ ~ | stereoclap [~ | stereoclap]]]> > hh]")
   //.swing(1)
   .gain(0.6)
   .compressor("-20:20:10:0.002:0.02")
